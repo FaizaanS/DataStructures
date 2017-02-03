@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    static void Main(String[] args) {
+        int[][] arr = new int[6][];
+        int max = -63;
+        int temp = -63;
+        for(int arr_i = 0; arr_i < 6; arr_i++){
+           string[] arr_temp = Console.ReadLine().Split(' ');
+           arr[arr_i] = Array.ConvertAll(arr_temp,Int32.Parse);
+        }
+        
+        
+        for(int i=0; i<4; i++) {
+            int m = i;
+            for(int j=0; j<4; j++) {
+                int n = j;
+                
+                    temp = arr[m][n] + arr[m][n+1] + arr[m][n+2] + arr[m+1][n+1] + arr[m+2][n] + arr[m+2][n+1] + arr[m+2][n+2];
+                    if(temp>max)
+                        max = temp;
+            }
+        }
+        
+        Console.WriteLine("{0}", max);
+    }
+}
